@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GraphAlgorithms<T> {
@@ -113,6 +114,45 @@ public class GraphAlgorithms<T> {
 			}
 		}
 		return minLength;
+	}
+	
+	public static <T> ArrayList<Edge<T>> kruskal(IGraph<T> g){
+		List<Edge<T>> result = new ArrayList<Edge<T>>(); // This will store the resultant MST
+		int e = 0; // An index variable, used for result[]
+		int i = 0; // An index variable, used for sorted edges
+
+		List<Edge<T>> edges = (ArrayList<Edge<T>>) g.getEdges();
+
+		// Step 1: Sort all the edges in non-decreasing order of their
+		// weight. If we are not allowed to change the given graph, we
+		// can create a copy of array of edges
+		Collections.sort(edges);
+
+		UnionFind uf = new UnionFind(g.getVertexSize());
+
+		i = 0; // Index used to pick next edge
+
+		// Number of edges to be taken is equal to V-1
+		while (e < g.getVertexSize() - 1 && i < edges.size()) {
+			// Step 2: Pick the smallest edge. And increment
+			// the index for next iteration
+			Edge<T> edge = edges.get(i);
+			i++;
+
+			int x = uf.find(g.getIndex(edge.getSource()));
+			int y = uf.find(g.getIndex(edge.getDestination()));
+
+			// If including this edge does't cause cycle,
+			// include it in result and increment the index
+			// of result for next edge
+			if (x != y) {
+				result.add(edge);
+				e++;
+				uf.union(x, y);
+			}
+			// Else discard the edge
+		}
+		return (ArrayList<Edge<T>>) result;
 	}
 
 }

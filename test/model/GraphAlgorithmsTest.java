@@ -2,6 +2,8 @@ package model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 class GraphAlgorithmsTest {
@@ -116,6 +118,42 @@ class GraphAlgorithmsTest {
 		
 		assertTrue(15 == GraphAlgorithms.prim(1, graph));
 		
+		
+	}
+	
+	@Test
+	void kruskalTest() {
+		//Toma las aristas de menor a mayor peso con sus vertices de origen menor a llegada mayor.
+		setUpScenary2();
+		assertEquals(15, GraphAlgorithms.prim(1, graph));
+		List<Edge<Integer>> edges1 = GraphAlgorithms.kruskal(graph);
+		
+		int totalW = 0;
+		Edge<Integer> e1 = edges1.get(0);
+		assertEquals(e1.getSource(), graph.search(graph.getIndex(1)));
+		assertEquals(e1.getDestination(), graph.search(graph.getIndex(2)));
+		assertEquals(e1.getWeight(), 2);
+		totalW+= e1.getWeight();
+		
+		e1 = edges1.get(1);
+		assertEquals(e1.getSource(), graph.search(graph.getIndex(3)));
+		assertEquals(e1.getDestination(), graph.search(graph.getIndex(4)));
+		assertEquals(e1.getWeight(), 3);
+		totalW+= e1.getWeight();
+		
+		e1 = edges1.get(2);
+		assertEquals(e1.getSource(), graph.search(graph.getIndex(2)));
+		assertEquals(e1.getDestination(), graph.search(graph.getIndex(5)));
+		assertEquals(e1.getWeight(), 4);
+		totalW+= e1.getWeight();
+		
+		e1 = edges1.get(3);
+		assertEquals(e1.getSource(), graph.search(graph.getIndex(4)));
+		assertEquals(e1.getDestination(), graph.search(graph.getIndex(5)));
+		assertEquals(e1.getWeight(), 6);
+		totalW+= e1.getWeight();
+		
+		assertTrue(totalW == GraphAlgorithms.prim(1, graph));
 		
 	}
 	
