@@ -30,7 +30,7 @@ public class AdjacencyList<T> implements IGraph<T>{
 	private List<List<T>> adjacencyLists;
 	
 	/**
-	 * Property that say if a graph is directed or not
+	 * Property that say if a graph is directed or not	
 	 */
 	private boolean isDirected;
 	
