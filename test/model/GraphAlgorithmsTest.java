@@ -40,6 +40,25 @@ class GraphAlgorithmsTest {
 		graph.addEdge(8, 9);
 	}
 	
+	@Test 
+	void setUpScenary1(){
+		graph = new AdjacencyMatrix<Integer>(true);
+		
+		graph.addVertex(1);
+		graph.addVertex(2);
+		graph.addVertex(3);
+		graph.addVertex(4);
+		graph.addVertex(5);
+		graph.addEdge(1, 3);
+		graph.addEdge(2, 1);
+		graph.addEdge(3, 2);
+		graph.addEdge(2, 5);
+		graph.addEdge(4, 2);
+		graph.addEdge(3, 4);
+	
+	}
+	
+	
 	@Test
 	void bfsTest() {
 		setUpScenary();
@@ -58,6 +77,15 @@ class GraphAlgorithmsTest {
 	
 	@Test
 	void dfsTest() {
+		setUpScenary1();
+		
+		//Hace el bfs correcto, pero mantiene la secuencia en orden ascendente sin importar que se haya saltado uno menor a el
+		assertTrue(1==GraphAlgorithms.dfs(graph, 1).get(0));
+		assertTrue(3==GraphAlgorithms.dfs(graph, 1).get(1));
+		assertTrue(4==GraphAlgorithms.dfs(graph, 1).get(2));
+		assertTrue(2==GraphAlgorithms.dfs(graph, 1).get(3));
+		assertTrue(5==GraphAlgorithms.dfs(graph, 1).get(4));
+		
 		
 	}
 	

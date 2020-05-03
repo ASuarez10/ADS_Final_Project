@@ -15,7 +15,6 @@ public class AdjacencyMatrix<T> implements IGraph<T>{
     * The length of the matrix when using the default Constructor.
     */
    private static final int DEFAULT_CAPACITY = 21;
-
    /**
     * The rate at which the matrix's length increases as it becomes full.
     */
