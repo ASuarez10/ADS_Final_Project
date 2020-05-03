@@ -66,5 +66,53 @@ public class GraphAlgorithms<T> {
 		}
 		return trav;
 	}
+	
+	public static <T> int prim(T node, IGraph<T> graph){
+		double[][] weights = graph.weightMatrix();
+		int n = graph.getVertexSize();
+		int index = graph.getIndex(node);
+		int minLength = 0;
+		int z;
+		double min;
+		double[] cost = new double[n];
+		int[] closer = new int[n];
+		boolean[] W = new boolean[n];
+		for (int i = 0; i < n; i++) {
+			W[i] = false;
+		}
+		W[index] = true;
+		for (int i = 0; i < n; i++) {
+			if (i != index) {
+				cost[i] = weights[index][i];
+				closer[i] = 0;
+			}
+		}
+		for (int i = 0; i < n; i++) {
+			if (i != index) {
+				min = cost[1];
+				z = 1;
+				for (int j = 0; j < n; j++) {
+					if (j != index) {
+						if (cost[j] < min) {
+							min = cost[j];
+							z = j;
+						}
+					}
+				}
+				minLength += min;
+				W[z] = true;
+				cost[z] = Integer.MAX_VALUE;
+				for (int j = 0; j < n; j++) {
+					if (j != index) {
+						if (weights[z][j] < cost[j] && !W[j]) {
+							cost[j] = weights[z][j];
+							closer[j] = z;
+						}
+					}
+				}
+			}
+		}
+		return minLength;
+	}
 
 }

@@ -58,6 +58,27 @@ class GraphAlgorithmsTest {
 	
 	}
 	
+	@Test
+	void setUpScenary2() {
+		graph = new AdjacencyMatrix<Integer>();
+		
+		graph.addVertex(1);
+		graph.addVertex(2);
+		graph.addVertex(3);
+		graph.addVertex(4);
+		graph.addVertex(5);
+		
+		graph.addEdge(1, 2, 2);
+		graph.addEdge(1, 3, 12);
+		graph.addEdge(3, 2, 7);
+		graph.addEdge(3, 4, 3);
+		graph.addEdge(2, 4, 15);
+		graph.addEdge(2, 5, 4);
+		graph.addEdge(4, 5, 6);
+		
+		
+	}
+	
 	
 	@Test
 	void bfsTest() {
@@ -85,6 +106,15 @@ class GraphAlgorithmsTest {
 		assertTrue(4==GraphAlgorithms.dfs(graph, 1).get(2));
 		assertTrue(2==GraphAlgorithms.dfs(graph, 1).get(3));
 		assertTrue(5==GraphAlgorithms.dfs(graph, 1).get(4));
+		
+		
+	}
+	
+	@Test
+	void primTest() {
+		setUpScenary2();
+		
+		assertTrue(15 == GraphAlgorithms.prim(1, graph));
 		
 		
 	}
