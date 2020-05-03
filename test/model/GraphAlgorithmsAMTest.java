@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-class GraphAlgorithmsTest {
+class GraphAlgorithmsAMTest {
 	
 	private IGraph<Integer> graph;
 	
