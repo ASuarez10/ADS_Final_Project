@@ -51,6 +51,7 @@ class GraphAlgorithmsAMTest {
 		graph.addVertex(3);
 		graph.addVertex(4);
 		graph.addVertex(5);
+		
 		graph.addEdge(1, 3);
 		graph.addEdge(2, 1);
 		graph.addEdge(3, 2);
@@ -81,6 +82,69 @@ class GraphAlgorithmsAMTest {
 		
 	}
 	
+	@Test
+	void setUpScenary3() {
+		graph = new AdjacencyMatrix<Integer>();
+		
+		graph.addVertex(1);
+		graph.addVertex(2);
+		graph.addVertex(3);
+		graph.addVertex(4);
+		graph.addVertex(5);
+		
+		graph.addEdge(1, 2, 2);
+		graph.addEdge(1, 3, 3);
+		graph.addEdge(2, 3, 7);
+		graph.addEdge(2, 4, 10);
+		graph.addEdge(2, 5, 3);
+		graph.addEdge(3, 4, 3);	
+		graph.addEdge(4, 5, 7);
+		
+		
+	}
+	
+	@Test
+	void setUpScenary4() {
+		graph = new AdjacencyMatrix<Integer>();
+		
+		graph.addVertex(1);
+		graph.addVertex(2);
+		graph.addVertex(3);
+		graph.addVertex(4);
+		graph.addVertex(5);
+		
+		graph.addEdge(1, 2);
+		graph.addEdge(1, 3);
+		graph.addEdge(3, 2);
+		graph.addEdge(3, 4);
+		graph.addEdge(2, 4);
+		graph.addEdge(2, 5);
+		graph.addEdge(4, 5);
+		
+		
+	}
+	
+	@Test
+	void setUpScenary5() {
+		graph = new AdjacencyMatrix<Integer>(true);
+		
+		graph.addVertex(1);
+		graph.addVertex(2);
+		graph.addVertex(3);
+		graph.addVertex(4);
+		graph.addVertex(5);
+		
+		graph.addEdge(2, 1);
+		graph.addEdge(1, 3);
+		graph.addEdge(3, 2);
+		graph.addEdge(3, 4);
+		graph.addEdge(4, 2);
+		graph.addEdge(2, 5);
+		graph.addEdge(5, 4);
+		
+		
+	}
+	
 	
 	@Test
 	void bfsTest() {
@@ -99,6 +163,19 @@ class GraphAlgorithmsAMTest {
 	}
 	
 	@Test
+	void bfsTest2() {
+		setUpScenary5();
+		
+		assertTrue(1 == GraphAlgorithms.bfs(graph, 1).get(0));
+		assertTrue(2 == GraphAlgorithms.bfs(graph, 1).get(1));
+		assertTrue(3 == GraphAlgorithms.bfs(graph, 1).get(2));
+		assertTrue(4 == GraphAlgorithms.bfs(graph, 1).get(3));
+		assertTrue(5 == GraphAlgorithms.bfs(graph, 1).get(4));
+		
+		
+	}
+	
+	@Test
 	void dfsTest() {
 		setUpScenary1();
 		
@@ -112,11 +189,33 @@ class GraphAlgorithmsAMTest {
 		
 	}
 	
+//	@Test
+//	void dfsTest2() {
+//		setUpScenary4();
+//		
+//		assertTrue(1==GraphAlgorithms.dfs(graph, 1).get(0));
+//		assertTrue(3==GraphAlgorithms.dfs(graph, 1).get(1));
+//		assertTrue(2==GraphAlgorithms.dfs(graph, 1).get(2));
+//		assertTrue(5==GraphAlgorithms.dfs(graph, 1).get(3));
+//		assertTrue(4==GraphAlgorithms.dfs(graph, 1).get(4));
+//		
+//		
+//	}
+	
 	@Test
 	void primTest() {
 		setUpScenary2();
 		
 		assertTrue(15 == GraphAlgorithms.prim(1, graph));
+		
+		
+	}
+	
+	@Test
+	void primTest2() {
+		setUpScenary3();
+		
+		assertTrue(11 == GraphAlgorithms.prim(1, graph));
 		
 		
 	}
@@ -157,5 +256,39 @@ class GraphAlgorithmsAMTest {
 		
 	}
 	
-	
+	@Test
+	void kruskalTest2() {
+		
+		setUpScenary3();
+		assertEquals(11, GraphAlgorithms.prim(1, graph));
+		List<Edge<Integer>> edges1 = GraphAlgorithms.kruskal(graph);
+		
+		int totalW = 0;
+		Edge<Integer> e1 = edges1.get(0);
+		assertEquals(e1.getSource(), graph.search(graph.getIndex(1)));
+		assertEquals(e1.getDestination(), graph.search(graph.getIndex(2)));
+		assertEquals(e1.getWeight(), 2);
+		totalW+= e1.getWeight();
+		
+		e1 = edges1.get(1);
+		assertEquals(e1.getSource(), graph.search(graph.getIndex(1)));
+		assertEquals(e1.getDestination(), graph.search(graph.getIndex(3)));
+		assertEquals(e1.getWeight(), 3);
+		totalW+= e1.getWeight();
+		
+		e1 = edges1.get(2);
+		assertEquals(e1.getSource(), graph.search(graph.getIndex(2)));
+		assertEquals(e1.getDestination(), graph.search(graph.getIndex(5)));
+		assertEquals(e1.getWeight(), 3);
+		totalW+= e1.getWeight();
+		
+		e1 = edges1.get(3);
+		assertEquals(e1.getSource(), graph.search(graph.getIndex(3)));
+		assertEquals(e1.getDestination(), graph.search(graph.getIndex(4)));
+		assertEquals(e1.getWeight(), 3);
+		totalW+= e1.getWeight();
+		
+		assertTrue(totalW == GraphAlgorithms.prim(1, graph));
+		
+	}
 }
