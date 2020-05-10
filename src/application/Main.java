@@ -19,6 +19,7 @@ public class Main extends Application {
 			MainWindowController nc = loader.getController();
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("MainWindow");
+			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -50,16 +50,25 @@ public class MainWindowController {
 	
 	@FXML
 	void clear(Event e) {
-		Alert confirmation = new Alert(AlertType.CONFIRMATION);
-		confirmation.setContentText("¿Estás seguro de que quieres borrar los datos?");
-		confirmation.setTitle("Clear");
 		
-		Optional<ButtonType> result = confirmation.showAndWait();
-		if(result.isPresent() && result.get() == ButtonType.OK) {
-			origin = null;
-			destination = null;
-			originLabel.setText("Origin:");
-			destinationLabel.setText("Destination:");
+		if(origin == null) {
+			Alert noData = new Alert(AlertType.ERROR);
+			noData.setContentText("No ha datos suficientes, por favor elige el origen y el destino");
+			noData.setTitle("Datos insuficientes");
+			noData.show();
+		}else {
+		
+			Alert confirmation = new Alert(AlertType.CONFIRMATION);
+			confirmation.setContentText("¿Estás seguro de que quieres borrar los datos?");
+			confirmation.setTitle("Clear");
+			
+			Optional<ButtonType> result = confirmation.showAndWait();
+			if(result.isPresent() && result.get() == ButtonType.OK) {
+				origin = null;
+				destination = null;
+				originLabel.setText("Origin:");
+				destinationLabel.setText("Destination:");
+			}
 		}
 	}
 	
