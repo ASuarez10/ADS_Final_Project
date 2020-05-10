@@ -2,30 +2,32 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="413.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
    <children>
-      <ImageView fitHeight="449.0" fitWidth="413.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="447.0" fitWidth="470.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/MapaQuindio.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="322.0" layoutY="224.0" mnemonicParsing="false" onAction="#clear" prefHeight="33.0" prefWidth="67.0" text="Clear" textFill="#118d8d" textOverrun="CLIP">
+      <Button layoutX="447.0" layoutY="288.0" mnemonicParsing="false" onAction="#clear" prefHeight="38.0" prefWidth="73.0" text="Clear" textFill="#118d8d" textOverrun="CLIP">
          <font>
             <Font name="Georgia" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="275.0" layoutY="274.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="114.0" text="Algorithm 1" textFill="#118d8d">
+      <Button layoutX="417.0" layoutY="338.0" mnemonicParsing="false" onAction="#matrixButton" prefHeight="47.0" prefWidth="130.0" text="Matriz de adyacencia" textFill="#118d8d">
          <font>
             <Font name="Georgia" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="275.0" layoutY="332.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="114.0" text="Algorithm 2" textFill="#118d8d">
+      <Button layoutX="418.0" layoutY="400.0" mnemonicParsing="false" onAction="#listButton" prefHeight="47.0" prefWidth="130.0" text="Lista de adyacencia" textFill="#118d8d">
          <font>
             <Font name="Georgia" size="12.0" />
          </font>
@@ -41,6 +43,27 @@
       <Circle fx:id="Filandia" fill="DODGERBLUE" layoutX="189.0" layoutY="73.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="Salento" fill="DODGERBLUE" layoutX="253.0" layoutY="91.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="Armenia" fill="DODGERBLUE" layoutX="171.0" layoutY="164.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="188.0" layoutY="330.0" prefHeight="17.0" prefWidth="130.0" text="Origin:" textFill="#118d8d">
+         <font>
+            <Font name="Georgia" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="206.0" layoutY="353.0" prefHeight="17.0" prefWidth="139.0" text="Destination: " textFill="#118d8d">
+         <font>
+            <Font name="Georgia" size="12.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9199a1" height="272.0" layoutX="413.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="139.0" />
+      <Label fx:id="originLabel" layoutX="417.0" layoutY="92.0" prefHeight="17.0" prefWidth="130.0" text="Origin:">
+         <font>
+            <Font name="Georgia" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="destinationLabel" layoutX="414.0" layoutY="155.0" prefHeight="18.0" prefWidth="139.0" text="Destination: ">
+         <font>
+            <Font name="Georgia" size="12.0" />
+         </font>
+      </Label>
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />
