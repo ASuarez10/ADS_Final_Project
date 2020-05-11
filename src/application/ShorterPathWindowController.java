@@ -2,8 +2,13 @@ package application;
 
 import java.util.Optional;
 
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -11,8 +16,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
-public class MainWindowController {
+public class ShorterPathWindowController {
 
 	@FXML
 	private Label originLabel;
@@ -93,6 +99,21 @@ public class MainWindowController {
 			noData.show();
 		}else {
 			
+		}
+	}
+	
+	@FXML
+	void back(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("PrincipalWindow.fxml"));
+			Parent root = (Parent) loader.load();
+			root.getStylesheets().add("application.css");// CSS
+			PrincipalWindowController nc = loader.getController();
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			stage.setScene(new Scene(root));
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 }//end
