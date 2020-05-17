@@ -208,6 +208,32 @@ public class GraphAlgorithms<T> {
 		return v;
 	}
 	
+	/**
+	 * Implementation of FloydWarshall algorithm
+	 * @param g the graph
+	 * @return the minimum paths between every vertex
+	 */
+	
+	public static <T> double[][] floydWarshall(IGraph<T> g) {
+		double[][] weights = g.weightMatrix();
+		String msg = "";
+		for (int i = 0; i < weights.length; i++) {
+			for (int j = 0; j < weights.length; j++) {
+				msg += weights[i][j] + " ";
+			}
+			msg += "\n";
+		}
+		System.out.println(msg);
+		for (int k = 0; k < weights.length; k++) {
+			for (int i = 0; i < weights.length; i++) {
+				for (int j = 0; j < weights.length; j++) {
+					weights[i][j] = Math.min(weights[i][j], weights[i][k] + weights[k][j]);
+				}
+			}
+		}
+		return weights;
+	}
+	
 	public static double[] getCost() {
 		return cost;
 	}

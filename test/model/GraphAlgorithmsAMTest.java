@@ -147,7 +147,7 @@ class GraphAlgorithmsAMTest {
 	
 	@Test
 	void setUpScenary6() {
-		graph = new AdjacencyMatrix<Integer>();
+		graph = new AdjacencyMatrix<Integer>(5);
 		
 		graph.addVertex(1);
 		graph.addVertex(2);
@@ -165,6 +165,27 @@ class GraphAlgorithmsAMTest {
 		
 		
 	}
+	
+	@Test
+	void setUpScenary7() {
+		graph = new AdjacencyMatrix<Integer>(true, 4);
+		
+		graph.addVertex(1);
+		graph.addVertex(2);
+		graph.addVertex(3);
+		graph.addVertex(4);
+		
+		graph.addEdge(1, 2, 80);
+		graph.addEdge(1, 4, 10);
+		graph.addEdge(2, 3, 10);
+		graph.addEdge(3, 1, 40);
+		graph.addEdge(4, 2, 20);
+		graph.addEdge(4, 3, 90);
+		
+		
+	}
+	
+	
 	
 	
 	@Test
@@ -321,7 +342,64 @@ class GraphAlgorithmsAMTest {
 		assertTrue(68.0 == (GraphAlgorithms.getCost()[0] + GraphAlgorithms.getCost()[1] + GraphAlgorithms.getCost()[2] 
 				+ GraphAlgorithms.getCost()[3] + GraphAlgorithms.getCost()[4]));
 		
-		System.out.println("1." + GraphAlgorithms.getCost()[0] + "\n2." + GraphAlgorithms.getCost()[1] + "\n3." +GraphAlgorithms.getCost()[2] +
-				"\n4." + GraphAlgorithms.getCost()[3] + "\n5." +GraphAlgorithms.getCost()[4]);
+		/*System.out.println("1." + GraphAlgorithms.getCost()[0] + "\n2." + GraphAlgorithms.getCost()[1] + "\n3." +GraphAlgorithms.getCost()[2] +
+				"\n4." + GraphAlgorithms.getCost()[3] + "\n5." +GraphAlgorithms.getCost()[4]);*/
+	}
+	
+	void floydWarshallTest() {
+		setUpScenary6();
+		GraphAlgorithms.floydWarshall(graph);
+		
+		//Matriz Fila 0
+		
+		assertTrue(0 == graph.weightMatrix()[0][0]);
+		assertTrue(17 == graph.weightMatrix()[0][1]);
+		assertTrue(13 == graph.weightMatrix()[0][2]);
+		assertTrue(18 == graph.weightMatrix()[0][3]);
+		assertTrue(20 == graph.weightMatrix()[0][4]);
+		
+		//Matriz Fila 1
+		
+		assertTrue(17 == graph.weightMatrix()[1][0]);
+		assertTrue(0 == graph.weightMatrix()[1][1]);
+		//System.out.println(graph.weightMatrix()[1][2]);
+		assertTrue(12 == graph.weightMatrix()[1][2]);
+		assertTrue(7 == graph.weightMatrix()[1][3]);
+		assertTrue(3 == graph.weightMatrix()[1][4]);
+		
+		//Matriz Fila 2
+		
+		assertTrue(13 == graph.weightMatrix()[2][0]);
+		assertTrue(12 == graph.weightMatrix()[2][1]);
+		//System.out.println(graph.weightMatrix()[2][1]);
+		assertTrue(0 == graph.weightMatrix()[2][2]);
+		assertTrue(5 == graph.weightMatrix()[2][3]);
+		assertTrue(9 == graph.weightMatrix()[2][4]);
+		
+		//Matriz Fila 3
+		
+		assertTrue(18 == graph.weightMatrix()[3][0]);
+		assertTrue(7 == graph.weightMatrix()[3][1]);
+		assertTrue(5 == graph.weightMatrix()[3][2]);
+		assertTrue(0 == graph.weightMatrix()[3][3]);
+		assertTrue(4 == graph.weightMatrix()[3][4]);
+		
+		//Matriz Fila 4
+		
+		assertTrue(20 == graph.weightMatrix()[4][0]);
+		assertTrue(3 == graph.weightMatrix()[4][1]);
+		assertTrue(9 == graph.weightMatrix()[4][2]);
+		assertTrue(4 == graph.weightMatrix()[4][3]);
+		assertTrue(0 == graph.weightMatrix()[4][4]);
+	}
+	
+	@Test
+	void floydWarshallTest1() {
+		setUpScenary7();
+		
+		GraphAlgorithms.floydWarshall(graph);
+		
+		
+		
 	}
 }

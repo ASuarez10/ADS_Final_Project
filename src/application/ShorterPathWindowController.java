@@ -2,6 +2,8 @@ package application;
 
 import java.util.Optional;
 
+import javafx.event.EventHandler;
+
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -13,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -30,7 +33,42 @@ public class ShorterPathWindowController {
 	private String destination;
 	
 	@FXML
+    private Circle Genova;
+
+    @FXML
+    private Circle Pijao;
+
+    @FXML
+    private Circle Buenavista;
+
+    @FXML
+    private Circle Cordoba;
+
+    @FXML
+    private Circle LaTebaida;
+
+    @FXML
+    private Circle Calarca;
+
+    @FXML
+    private Circle Montenegro;
+
+    @FXML
+    private Circle Quimbaya;
+
+    @FXML
+    private Circle Filandia;
+
+    @FXML
+    private Circle Salento;
+
+    @FXML
+    private Circle Armenia;
+	
+	@FXML
 	void getID(MouseEvent e) {
+		
+		
 		if(origin == null) {		
 			origin = ((Circle)e.getSource()).getId();
 			originLabel.setText("Origin: " + origin);
@@ -52,6 +90,11 @@ public class ShorterPathWindowController {
 			System.out.println("Destination = " + destination);
 			}
 		}
+	}
+	
+	@FXML
+	void start() {
+		
 	}
 	
 	@FXML
