@@ -185,6 +185,28 @@ class GraphAlgorithmsAMTest {
 		
 	}
 	
+	@Test
+	void setUpScenary8() {
+		graph = new AdjacencyMatrix<Integer>(6);
+		
+		graph.addVertex(1);
+		graph.addVertex(2);
+		graph.addVertex(3);
+		graph.addVertex(4);
+		graph.addVertex(5);
+		graph.addVertex(6);
+		
+		graph.addEdge(1, 2, 2);
+		graph.addEdge(1, 3, 3);
+		graph.addEdge(2, 4, 5);
+		graph.addEdge(2, 5, 2);
+		graph.addEdge(3, 5, 5);
+		graph.addEdge(2, 5, 2);
+		graph.addEdge(4, 5, 1);
+		graph.addEdge(4, 6, 2);
+		graph.addEdge(5, 6, 4);
+	}
+	
 	
 	
 	
@@ -346,6 +368,17 @@ class GraphAlgorithmsAMTest {
 				"\n4." + GraphAlgorithms.getCost()[3] + "\n5." +GraphAlgorithms.getCost()[4]);*/
 	}
 	
+	@Test
+	
+	void dijkstraTest1() {
+		setUpScenary8();
+		GraphAlgorithms.dijkstra(1, graph, 0);
+		assertTrue(21.0 == (GraphAlgorithms.getCost()[0] + GraphAlgorithms.getCost()[1] + GraphAlgorithms.getCost()[2] 
+				+ GraphAlgorithms.getCost()[3] + GraphAlgorithms.getCost()[4] + GraphAlgorithms.getCost()[5]));
+	}
+	
+	@Test
+	
 	void floydWarshallTest() {
 		setUpScenary6();
 		GraphAlgorithms.floydWarshall(graph);
@@ -398,6 +431,39 @@ class GraphAlgorithmsAMTest {
 		setUpScenary7();
 		
 		GraphAlgorithms.floydWarshall(graph);
+		
+		//Matriz Fila 0
+		
+		assertTrue(0 == graph.weightMatrix()[0][0]);
+		assertTrue(30 == graph.weightMatrix()[0][1]);
+		assertTrue(40 == graph.weightMatrix()[0][2]);
+		assertTrue(10 == graph.weightMatrix()[0][3]);
+		
+		//Matriz Fila 1
+		
+		assertTrue(50 == graph.weightMatrix()[1][0]);
+		assertTrue(0 == graph.weightMatrix()[1][1]);
+		assertTrue(10 == graph.weightMatrix()[1][2]);
+		assertTrue(60 == graph.weightMatrix()[1][3]);
+		
+		//Matriz Fila 2
+		
+		assertTrue(40 == graph.weightMatrix()[2][0]);
+		assertTrue(70 == graph.weightMatrix()[2][1]);
+		assertTrue(0 == graph.weightMatrix()[2][2]);
+		assertTrue(50 == graph.weightMatrix()[2][3]);
+		
+		//Matriz Fila 3
+		
+		
+		
+		assertTrue(70 == graph.weightMatrix()[3][0]);
+		assertTrue(20 == graph.weightMatrix()[3][1]);
+		assertTrue(30 == graph.weightMatrix()[3][2]);
+		assertTrue(0 == graph.weightMatrix()[3][3]);
+		
+		
+
 		
 		
 		

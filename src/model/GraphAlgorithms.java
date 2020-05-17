@@ -173,13 +173,13 @@ public class GraphAlgorithms<T> {
 			F[i] = false;
 			cost[i] = weights[index][i];
 			path[i] = index;
-			System.out.println(i+1 + " " + cost[i] + " * " + F[i]);
+			//System.out.println(i+1 + " " + cost[i] + " * " + F[i]);
 		}
 		F[index] = true;
 		cost[index] = 0;
 		for (int k = 0; k < n; k++) {
 			int v = minimum(n);
-			System.out.println("That is v:"+ n + v);
+			//System.out.println("That is v:"+ n + v);
 			F[v] = true;
 			for (int i = 0; i < n; i++) {
 				if(!F[i]) {
@@ -223,7 +223,7 @@ public class GraphAlgorithms<T> {
 			}
 			msg += "\n";
 		}
-		System.out.println(msg);
+		//System.out.println(msg);
 		for (int k = 0; k < weights.length; k++) {
 			for (int i = 0; i < weights.length; i++) {
 				for (int j = 0; j < weights.length; j++) {
