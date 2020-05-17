@@ -45,14 +45,18 @@ public class AdjacencyList<T> implements IGraph<T>{
 	public AdjacencyList() {
 		initialize(DEFAULT_CAPACITY);
 	}
+	
+	public AdjacencyList(int capacity) {
+		initialize(capacity);
+	}
 
 	/**
 	 * Constructor that gets the value for "isDirected" attribute.
 	 * True if the graph is Directed or false if it's Indirected
 	 * @param id value to set "isDirected"
 	 */
-	public AdjacencyList(boolean id) {
-		initialize(DEFAULT_CAPACITY);
+	public AdjacencyList(boolean id, int capacity) {
+		initialize(capacity);
 		isDirected = id;
 	}
 	
