@@ -145,6 +145,27 @@ class GraphAlgorithmsAMTest {
 		
 	}
 	
+	@Test
+	void setUpScenary6() {
+		graph = new AdjacencyMatrix<Integer>();
+		
+		graph.addVertex(1);
+		graph.addVertex(2);
+		graph.addVertex(3);
+		graph.addVertex(4);
+		graph.addVertex(5);
+		
+		graph.addEdge(1, 2, 17);
+		graph.addEdge(1, 3, 13);
+		graph.addEdge(2, 3, 14);
+		graph.addEdge(2, 4, 16);
+		graph.addEdge(2, 5, 3);
+		graph.addEdge(3, 4, 5);
+		graph.addEdge(4, 5, 4);
+		
+		
+	}
+	
 	
 	@Test
 	void bfsTest() {
@@ -290,5 +311,17 @@ class GraphAlgorithmsAMTest {
 		
 		assertTrue(totalW == GraphAlgorithms.prim(1, graph));
 		
+	}
+	
+	@Test
+	
+	void dijkstraTest() {
+		setUpScenary6();
+		GraphAlgorithms.dijkstra(1, graph, 0);
+		assertTrue(68.0 == (GraphAlgorithms.getCost()[0] + GraphAlgorithms.getCost()[1] + GraphAlgorithms.getCost()[2] 
+				+ GraphAlgorithms.getCost()[3] + GraphAlgorithms.getCost()[4]));
+		
+		System.out.println("1." + GraphAlgorithms.getCost()[0] + "\n2." + GraphAlgorithms.getCost()[1] + "\n3." +GraphAlgorithms.getCost()[2] +
+				"\n4." + GraphAlgorithms.getCost()[3] + "\n5." +GraphAlgorithms.getCost()[4]);
 	}
 }

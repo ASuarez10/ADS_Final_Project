@@ -6,6 +6,11 @@ import java.util.List;
 
 public class GraphAlgorithms<T> {
 	
+	private static double[] cost;
+	private static boolean[] F;
+	private static int[] path;
+	public static List<Integer> choice;
+	
 	//Attributtes
 	
 	//Constructor Method
@@ -153,6 +158,66 @@ public class GraphAlgorithms<T> {
 			// Else discard the edge
 		}
 		return (ArrayList<Edge<T>>) result;
+	}
+	
+	public static<T> void dijkstra(T origin, IGraph<T> g, int c) {
+		double[][] weights = g.weightMatrix();
+		int index = g.getIndex(origin); 
+		int n = g.getVertexSize();
+		cost = new double[n];
+		F = new boolean[n];
+		path = new int[n];
+		choice = new ArrayList<Integer>();
+		choice.add(g.getIndex(origin));
+		for (int i = 0; i < n; i++) {
+			F[i] = false;
+			cost[i] = weights[index][i];
+			path[i] = index;
+			System.out.println(i+1 + " " + cost[i] + " * " + F[i]);
+		}
+		F[index] = true;
+		cost[index] = 0;
+		for (int k = 0; k < n; k++) {
+			int v = minimum(n);
+			System.out.println("That is v:"+ n + v);
+			F[v] = true;
+			for (int i = 0; i < n; i++) {
+				if(!F[i]) {
+					if (cost[v] + weights[v][i] < cost[i]) {
+						cost[i] = (cost[v] + weights[v][i]);
+						path[i] = v;
+						
+						if (i == c) {
+							choice.add(v);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private static int minimum(int n) {
+		double max = Integer.MAX_VALUE;
+		int v = 1;
+		for (int j = 0; j < n; j++) {
+			if (!F[j] && (cost[j] <= max)) {
+				max = cost[j];
+				v = j;
+			}
+		}
+		return v;
+	}
+	
+	public static double[] getCost() {
+		return cost;
+	}
+	
+	public static int[] getPath() {
+		return path;
+	}
+
+	public static List<Integer> getChoice() {
+		return choice;
 	}
 
 }
