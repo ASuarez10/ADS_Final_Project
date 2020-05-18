@@ -15,12 +15,59 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 public class FullPathWindowController {
 
 	@FXML
 	private Label originLabel;
+	
+	@FXML
+    private Circle Genova;
+
+    @FXML
+    private Circle Pijao;
+
+    @FXML
+    private Circle Buenavista;
+
+    @FXML
+    private Circle Cordoba;
+
+    @FXML
+    private Circle LaTebaida;
+
+    @FXML
+    private Circle Calarca;
+
+    @FXML
+    private Circle Montenegro;
+
+    @FXML
+    private Circle Quimbaya;
+
+    @FXML
+    private Circle Filandia;
+
+    @FXML
+    private Circle Salento;
+
+    @FXML
+    private Circle Armenia;
+	
+	@FXML private Line genova_Pijao;
+	@FXML private Line genova_Buenavista;
+	@FXML private Line pijao_Cordoba;
+	@FXML private Line buenavista_Cordoba;
+	@FXML private Line cordoba_Calarca;
+	@FXML private Line calarca_Montenegro;
+	@FXML private Line calarca_LaTebaida;
+	@FXML private Line laTebaida_Montenegro;
+	@FXML private Line montenegro_Quimbaya;
+	@FXML private Line quimbaya_Filandia;
+	@FXML private Line filandia_Salento;
+	@FXML private Line armenia_Salento;
 	
 	private String origin;
 	
@@ -45,6 +92,7 @@ public class FullPathWindowController {
 		if(origin == null) {
 			origin = ((Circle)e.getSource()).getId();
 			originLabel.setText("Origin: " + origin);
+			((Circle)e.getSource()).setOpacity(1);
 		}
 		
 	}
@@ -65,6 +113,7 @@ public class FullPathWindowController {
 			if(result.isPresent() && result.get() == ButtonType.OK) {
 				origin = null;
 				originLabel.setText("Origin:");
+				opacity0();
 			}
 		}
 	}
@@ -91,6 +140,32 @@ public class FullPathWindowController {
 		}else{
 			
 		}
+	}
+	
+	public void opacity0() {
+		Genova.setOpacity(0);
+		Pijao.setOpacity(0);
+		Buenavista.setOpacity(0);
+		Cordoba.setOpacity(0);
+		LaTebaida.setOpacity(0);
+		Calarca.setOpacity(0);
+		Montenegro.setOpacity(0);
+		Quimbaya.setOpacity(0);
+		Filandia.setOpacity(0);
+		Salento.setOpacity(0);
+		Armenia.setOpacity(0);
+		genova_Pijao.setOpacity(0);
+		genova_Buenavista.setOpacity(0);
+		pijao_Cordoba.setOpacity(0);
+		buenavista_Cordoba.setOpacity(0);
+		cordoba_Calarca.setOpacity(0);
+		calarca_Montenegro.setOpacity(0);
+		calarca_LaTebaida.setOpacity(0);
+		laTebaida_Montenegro.setOpacity(0);
+		montenegro_Quimbaya.setOpacity(0);
+		quimbaya_Filandia.setOpacity(0);
+		filandia_Salento.setOpacity(0);
+		armenia_Salento.setOpacity(0);
 	}
 	
 }//end

@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -32,17 +33,6 @@
             <Font name="Georgia" size="12.0" />
          </font>
       </Button>
-      <Circle fx:id="Genova" fill="#ff9d14" layoutX="97.0" layoutY="367.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="Pijao" fill="#ff9d14" layoutX="139.0" layoutY="298.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="Buenavista" fill="#ff9d14" layoutX="124.0" layoutY="272.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="Cordoba" fill="#ff9d14" layoutX="156.0" layoutY="265.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="LaTebaida" fill="#ff9d14" layoutX="112.0" layoutY="208.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="Calarca" fill="#ff9d14" layoutX="198.0" layoutY="169.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="Montenegro" fill="#ff9d14" layoutX="111.0" layoutY="154.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="Quimbaya" fill="#ff9d14" layoutX="103.0" layoutY="120.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="Filandia" fill="#ff9d14" layoutX="189.0" layoutY="73.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="Salento" fill="#ff9d14" layoutX="253.0" layoutY="91.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="Armenia" fill="DODGERBLUE" layoutX="171.0" layoutY="164.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
       <Label layoutX="188.0" layoutY="330.0" prefHeight="17.0" prefWidth="130.0" text="Origin:" textFill="#118d8d">
          <font>
             <Font name="Georgia" size="12.0" />
@@ -69,6 +59,29 @@
             <Font name="Georgia" size="12.0" />
          </font>
       </Button>
+      <Line fx:id="genova_Pijao" endX="-119.0" endY="41.0" fill="#0048ff" layoutX="258.0" layoutY="257.0" opacity="0.0" startX="-164.0" startY="115.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="genova_Buenavista" endX="-133.0" endY="22.0" fill="#0048ff" layoutX="252.0" layoutY="253.0" opacity="0.0" startX="-159.0" startY="118.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="pijao_Cordoba" endX="-128.0" endY="32.0" fill="#0048ff" layoutX="268.0" layoutY="267.0" opacity="0.0" startX="-112.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="buenavista_Cordoba" endX="-149.0" endY="9.0" fill="#0048ff" layoutX="268.0" layoutY="267.0" opacity="0.0" startX="-113.0" startY="-2.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="cordoba_Calarca" endX="-113.0" fill="#0048ff" layoutX="268.0" layoutY="267.0" opacity="0.0" startX="-74.0" startY="-91.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="calarca_Montenegro" endX="-74.0" endY="-90.0" fill="#0048ff" layoutX="268.0" layoutY="267.0" opacity="0.0" startX="-166.0" startY="-115.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="calarca_LaTebaida" endX="-74.0" endY="-90.0" fill="#0048ff" layoutX="268.0" layoutY="267.0" opacity="0.0" startX="-162.0" startY="-58.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="laTebaida_Montenegro" endX="-164.0" endY="-59.0" fill="#0048ff" layoutX="268.0" layoutY="267.0" opacity="0.0" startX="-164.0" startY="-116.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="montenegro_Quimbaya" endX="-164.0" endY="-116.0" fill="#0048ff" layoutX="268.0" layoutY="267.0" opacity="0.0" startX="-164.0" startY="-147.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="quimbaya_Filandia" endX="-164.0" endY="-145.0" fill="#0048ff" layoutX="268.0" layoutY="267.0" opacity="0.0" startX="-87.0" startY="-192.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="filandia_Salento" endX="-87.0" endY="-192.0" fill="#0048ff" layoutX="268.0" layoutY="267.0" opacity="0.0" startX="-19.0" startY="-167.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Line fx:id="armenia_Salento" endX="-98.0" endY="-104.0" fill="#0048ff" layoutX="268.0" layoutY="267.0" opacity="0.0" startX="-19.0" startY="-168.0" stroke="#0040eb" strokeWidth="5.0" />
+      <Circle fx:id="Pijao" fill="#ff9d14" layoutX="139.0" layoutY="298.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="Genova" fill="#ff9d14" layoutX="97.0" layoutY="367.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="Buenavista" fill="#ff9d14" layoutX="124.0" layoutY="272.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="Cordoba" fill="#ff9d14" layoutX="162.0" layoutY="271.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="LaTebaida" fill="#ff9d14" layoutX="112.0" layoutY="208.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="Calarca" fill="#ff9d14" layoutX="198.0" layoutY="180.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="Montenegro" fill="#ff9d14" layoutX="111.0" layoutY="154.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="Quimbaya" fill="#ff9d14" layoutX="111.0" layoutY="121.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="Filandia" fill="#ff9d14" layoutX="189.0" layoutY="73.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="Salento" fill="#ff9d14" layoutX="253.0" layoutY="99.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="Armenia" fill="DODGERBLUE" layoutX="175.0" layoutY="165.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />
