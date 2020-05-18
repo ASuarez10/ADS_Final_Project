@@ -67,6 +67,9 @@ public interface IGraph<T> {
 	 */
 	public double[][] weightMatrix();
 	
+	
+	public double[][] getAdjacencyMatrix();
+	
 	/**
 	 * 
 	 * @return True if the graph is directed or false if it isn't

@@ -252,4 +252,10 @@ public class AdjacencyList<T> implements IGraph<T>{
 		return edges;
 	}
 
+	@Override
+	public double[][] getAdjacencyMatrix() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -168,6 +168,23 @@ public class AdjacencyMatrix<T> implements IGraph<T>{
 	}
 
 	@Override
+	public double[][] getAdjacencyMatrix() {
+		return adjacencyMatrix;
+	}
+
+	public void setAdjacencyMatrix(double[][] adjacencyMatrix) {
+		this.adjacencyMatrix = adjacencyMatrix;
+	}
+
+	public double[][] getAdjacencyMatrixWeight() {
+		return adjacencyMatrixWeight;
+	}
+
+	public void setAdjacencyMatrixWeight(double[][] adjacencyMatrixWeight) {
+		this.adjacencyMatrixWeight = adjacencyMatrixWeight;
+	}
+
+	@Override
 	public boolean removeVertex(T node) {
 		boolean removed = false;
 		Integer position = verticesIndices.get(node);

@@ -207,8 +207,21 @@ class GraphAlgorithmsAMTest {
 		graph.addEdge(5, 6, 4);
 	}
 	
+	@Test
+	void addVertexTest() {
+		setUpScenary4();
+		assertTrue(graph.getVertexSize() == 5);
+		graph.addVertex(54);
+		assertTrue(graph.getVertexSize() == 6);
+	}
 	
-	
+	@Test
+	void addEdge() {
+		setUpScenary4();
+		assertTrue(graph.getAdjacencyMatrix()[1][5] == 0);
+		graph.addEdge(1,5);
+		assertTrue(graph.getAdjacencyMatrix()[1][5] == 0);
+	}
 	
 	@Test
 	void bfsTest() {
