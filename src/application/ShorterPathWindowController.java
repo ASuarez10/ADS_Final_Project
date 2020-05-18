@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 public class ShorterPathWindowController {
 	
 	private IGraph<String> graph;
+	private GraphAlgorithms solution;
 	
 	private  ArrayList<String> namesPlace;
 	private String[][] costs;
@@ -220,6 +221,7 @@ public class ShorterPathWindowController {
 	void clear(Event e) {
 		
 		if(origin == null) {
+			graph = null;
 			Alert noData = new Alert(AlertType.ERROR);
 			noData.setContentText("No ha datos suficientes, por favor elige el origen y el destino");
 			noData.setTitle("Datos insuficientes");
@@ -244,6 +246,7 @@ public class ShorterPathWindowController {
 	
 	@FXML
 	void matrixButton(Event e) {
+		solution = new GraphAlgorithms<Object>();
 		if(origin == destination || destination == null) {
 			Alert noData = new Alert(AlertType.ERROR);
 			noData.setContentText("No ha datos suficientes, por favor elige el origen y el destino");
@@ -290,7 +293,11 @@ public class ShorterPathWindowController {
 					}
 				}
 			}
-			}
+			String result = "Result: \n" + GraphAlgorithms.prim(origin, graph);
+			resultsLabel.setText("The Algorithm prime throws "+result + " like a minimum height");
+			
+		}
+		
 	}
 	
 	@FXML
