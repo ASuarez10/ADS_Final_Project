@@ -31,6 +31,7 @@ public class GraphAlgorithms<T> {
 		return traversal(g, node, new Queue<T>());
 	}
 	
+	
 	/**
 	 * Performs a depth-first search to traverse a graph
 	 * @param <T> Abstract data type that represent a vertex within the graph
@@ -91,6 +92,7 @@ public class GraphAlgorithms<T> {
 			if (i != index) {
 				cost[i] = weights[index][i];
 				closer[i] = 0;
+				//System.out.println("Syso1: " + i + " " + cost[i]); 
 			}
 		}
 		for (int i = 0; i < n; i++) {
@@ -102,22 +104,32 @@ public class GraphAlgorithms<T> {
 						if (cost[j] < min) {
 							min = cost[j];
 							z = j;
+							//System.out.println("Logico: " + cost[j] + "<" + min);
+							//System.out.println("Syso2: " +j + " " + min);
 						}
 					}
 				}
 				minLength += min;
+				//System.out.println(minLength);
+				//System.out.println(i + " " + (i+1) + " " + minLength);
+				//System.out.println("Costos: " + i +" "+ cost[i]);
+				
 				W[z] = true;
 				cost[z] = Integer.MAX_VALUE;
 				for (int j = 0; j < n; j++) {
 					if (j != index) {
 						if (weights[z][j] < cost[j] && !W[j]) {
 							cost[j] = weights[z][j];
+							//System.out.println("Syso3: " +j + " " + cost[j]);
+							//System.out.println("Closer " + closer[j] );
 							closer[j] = z;
 						}
 					}
 				}
 			}
 		}
+		
+		//System.out.println("a" + minLength);
 		return minLength;
 	}
 	

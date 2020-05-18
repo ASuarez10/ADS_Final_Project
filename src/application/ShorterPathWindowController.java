@@ -1,5 +1,8 @@
 package application;
 
+import model.*;
+
+import java.util.ArrayList;
 import java.util.Optional;
 
 import javafx.event.EventHandler;
@@ -22,6 +25,11 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class ShorterPathWindowController {
+	
+	private IGraph<String> graph;
+	
+	private  ArrayList<String> namesPlace;
+	private String[][] costs;
 
 	@FXML
 	private Label originLabel;
@@ -93,7 +101,73 @@ public class ShorterPathWindowController {
 	}
 	
 	@FXML
-	void start() {
+	void initialize() {
+		namesPlace = new ArrayList<String>();
+		namesPlace.add("Genova");
+		namesPlace.add("Pijao");
+		namesPlace.add("Buenavista");
+		namesPlace.add("Cordoba");
+		namesPlace.add("Calarca");
+		namesPlace.add("Armenia");
+		namesPlace.add("LaTebaida");
+		namesPlace.add("Montenegro");
+		namesPlace.add("Quimbaya");
+		namesPlace.add("Filandia");
+		namesPlace.add("Salento");
+		
+		
+		costs = new String[12][3];
+		
+		//
+		costs[0][0] = "Genova";
+		costs[0][1] = "Pijao";
+		costs[0][2] = "10";
+		
+		costs[1][0] = "Genova";
+		costs[1][1] = "Buenavista";
+		costs[1][2] = "14";
+		
+		costs[2][0] = "Pijao";
+		costs[2][1] = "Cordoba";
+		costs[2][2] = "12";
+		
+		costs[3][0] = "Buenavista";
+		costs[3][1] = "Cordoba";
+		costs[3][2] = "20";
+		
+		costs[4][0] = "Cordoba";
+		costs[4][1] = "Calarca";
+		costs[4][2] = "30";
+		
+		costs[5][0] = "Calarca";
+		costs[5][1] = "Armenia";
+		costs[5][2] = "10";
+		
+		costs[6][0] = "Armenia";
+		costs[6][1] = "LaTebaida";
+		costs[6][2] = "14";
+		
+		costs[7][0] = "Armenia";
+		costs[7][1] = "Montenegro";
+		costs[7][2] = "13";
+		
+		costs[8][0] = "LaTebaida";
+		costs[8][1] = "Montenegro";
+		costs[8][2] = "19";
+		
+		costs[9][0] = "Montenegro";
+		costs[9][1] = "Quimbaya";
+		costs[9][2] = "12";
+		
+		costs[10][0] = "Quimbaya";
+		costs[10][1] = "Filandia";
+		costs[10][2] = "19";
+		
+		costs[11][0] = "Filandia";
+		costs[11][1] = "Salento";
+		costs[11][2] = "12";
+		
+		
 		
 	}
 	
@@ -128,7 +202,27 @@ public class ShorterPathWindowController {
 			noData.setContentText("No ha datos suficientes, por favor elige el origen y el destino");
 			noData.setTitle("Datos insuficientes");
 			noData.show();
-		}else {
+		}else{
+			System.out.println("Hello");
+			graph = new AdjacencyMatrix<String>();
+			graph.addVertex(origin);
+			int index = 0;
+			int desti = 0;
+			for (int i = 0; i < namesPlace.size(); i++) {
+				if(namesPlace.get(i) == origin) {
+					index = i;
+					//Prueba
+					System.out.println("Origin: "+ namesPlace.get(i));
+				}
+				if(namesPlace.get(i) == destination) {
+					desti = i;
+					//Prueba
+					System.out.println("Destination: "+ namesPlace.get(i));
+				}
+			}
+			
+			
+			
 			
 		}
 	}
