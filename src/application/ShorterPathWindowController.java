@@ -249,29 +249,48 @@ public class ShorterPathWindowController {
 			noData.setContentText("No ha datos suficientes, por favor elige el origen y el destino");
 			noData.setTitle("Datos insuficientes");
 			noData.show();
-		}else{
-			System.out.println("Hello");
+		}else {
 			graph = new AdjacencyMatrix<String>();
-			graph.addVertex(origin);
 			int index = 0;
 			int desti = 0;
 			for (int i = 0; i < namesPlace.size(); i++) {
-				if(namesPlace.get(i) == origin) {
+				if(namesPlace.get(i).equals(origin)) {
 					index = i;
 					//Prueba
 					System.out.println("Origin: "+ namesPlace.get(i));
 				}
-				if(namesPlace.get(i) == destination) {
+				if(namesPlace.get(i).equals(destination)) {
 					desti = i;
 					//Prueba
 					System.out.println("Destination: "+ namesPlace.get(i));
 				}
 			}
-			
-			
-			
-			
-		}
+			for (int i = index; i < desti+1; i++) {
+				//Prueba
+				String a = namesPlace.get(i);
+				graph.addVertex(a);
+				System.out.println("Añadiendo al grafo: "+ namesPlace.get(i));
+			}
+			for (int i = index; i < desti+1; i++) {
+				for (int j = 0; j < costs.length; j++) {
+					if(namesPlace.get(i).equals(costs[j][0])) {
+						String b = costs[j][0];
+						String c = costs[j][1];
+						String d = costs[j][2];
+						try {
+							
+							int z = Integer.parseInt(d);
+							graph.addEdge(b, c, z);
+							//Prueba
+							System.out.println("Agregando arista: " + b + " " + c + " " + z);
+						}catch(Exception a) {
+							System.out.println("Error" + b + " " + c);
+						}
+					
+					}
+				}
+			}
+			}
 	}
 	
 	@FXML
