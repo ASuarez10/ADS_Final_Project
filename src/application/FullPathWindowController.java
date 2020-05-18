@@ -24,6 +24,9 @@ public class FullPathWindowController {
 	private Label originLabel;
 	
 	@FXML
+	private Label resultsLabel;
+	
+	@FXML
     private Circle Genova;
 
     @FXML
@@ -113,6 +116,7 @@ public class FullPathWindowController {
 			if(result.isPresent() && result.get() == ButtonType.OK) {
 				origin = null;
 				originLabel.setText("Origin:");
+				resultsLabel.setText("");
 				opacity0();
 			}
 		}

@@ -44,12 +44,12 @@
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9199a1" height="227.0" layoutX="413.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="139.0" />
-      <Label fx:id="originLabel" layoutX="417.0" layoutY="121.0" prefHeight="17.0" prefWidth="130.0" text="Origin:">
+      <Label fx:id="originLabel" layoutX="417.0" layoutY="47.0" prefHeight="17.0" prefWidth="130.0" text="Origin:">
          <font>
             <Font name="Georgia" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="destinationLabel" layoutX="414.0" layoutY="173.0" prefHeight="18.0" prefWidth="139.0" text="Destination: ">
+      <Label fx:id="destinationLabel" layoutX="412.0" layoutY="79.0" prefHeight="18.0" prefWidth="139.0" text="Destination: ">
          <font>
             <Font name="Georgia" size="12.0" />
          </font>
@@ -82,6 +82,7 @@
       <Circle fx:id="Filandia" fill="#ff9d14" layoutX="189.0" layoutY="73.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="Salento" fill="#ff9d14" layoutX="253.0" layoutY="99.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="Armenia" fill="DODGERBLUE" layoutX="175.0" layoutY="165.0" onMouseClicked="#getID" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="414.0" layoutY="110.0" prefHeight="154.0" prefWidth="139.0" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

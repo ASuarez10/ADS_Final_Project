@@ -36,6 +36,9 @@ public class ShorterPathWindowController {
 	private Label originLabel;
 	
 	@FXML
+	private Label resultsLabel;
+	
+	@FXML
 	private Label destinationLabel;
 	
 	private String origin;
@@ -233,6 +236,7 @@ public class ShorterPathWindowController {
 				destination = null;
 				originLabel.setText("Origin:");
 				destinationLabel.setText("Destination:");
+				resultsLabel.setText("");
 				opacity0();
 			}
 		}
