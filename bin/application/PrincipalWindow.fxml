@@ -19,7 +19,7 @@
       </Label>
       <Button layoutX="139.0" layoutY="254.0" mnemonicParsing="false" onAction="#shorterpath" prefHeight="39.0" prefWidth="119.0" text="Opción 1" />
       <Button layoutX="311.0" layoutY="254.0" mnemonicParsing="false" onAction="#fullPath" prefHeight="39.0" prefWidth="119.0" text="Opción 2" />
-      <Label layoutX="115.0" layoutY="169.0" text="Opción 1: Ruta más corta de un lugar a otro" />
+      <Label layoutX="115.0" layoutY="169.0" text="Opción 1: Arbol recubridor minimo de un lugar a otro" />
       <Label layoutX="113.0" layoutY="200.0" text="Opción 2: Ruta más corta para pasar por todos los lugares" />
    </children>
 </Pane>

@@ -77,7 +77,7 @@
       <Circle fx:id="Salento" fill="DODGERBLUE" layoutX="253.0" layoutY="91.0" onMouseClicked="#setOrigin" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="Armenia" fill="DODGERBLUE" layoutX="171.0" layoutY="164.0" onMouseClicked="#setOrigin" opacity="0.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
       <Line fx:id="armenia_Salento" endX="-98.0" endY="-104.0" fill="#0048ff" layoutX="272.0" layoutY="266.0" opacity="0.0" startX="-19.0" startY="-168.0" stroke="#0040eb" strokeWidth="5.0" />
-      <Label layoutX="412.0" layoutY="118.0" prefHeight="146.0" prefWidth="139.0" />
+      <Label fx:id="resultsLabel" layoutX="412.0" layoutY="118.0" prefHeight="146.0" prefWidth="139.0" wrapText="true" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

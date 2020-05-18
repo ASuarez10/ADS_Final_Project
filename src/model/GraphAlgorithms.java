@@ -10,11 +10,14 @@ public class GraphAlgorithms<T> {
 	private static boolean[] F;
 	private static int[] path;
 	public static List<Integer> choice;
+	private static String vertex;
 	
 	//Attributtes
 	
 	//Constructor Method
 	
+	
+
 	public GraphAlgorithms(){
 		
 	}
@@ -75,6 +78,8 @@ public class GraphAlgorithms<T> {
 	}
 	
 	public static <T> int prim(T node, IGraph<T> graph){
+		vertex = "";
+		
 		double[][] weights = graph.weightMatrix();
 		int n = graph.getVertexSize();
 		int index = graph.getIndex(node);
@@ -111,7 +116,11 @@ public class GraphAlgorithms<T> {
 				}
 				minLength += min;
 				//System.out.println(minLength);
+				
+				
+				
 				//System.out.println(i + " " + (i+1) + " " + minLength);
+				vertex += i + " " + (i+1) + " " + minLength + "\n";
 				//System.out.println("Costos: " + i +" "+ cost[i]);
 				
 				W[z] = true;
@@ -133,6 +142,14 @@ public class GraphAlgorithms<T> {
 		return minLength;
 	}
 	
+	public String getVertex() {
+		return vertex;
+	}
+
+	public void setVertex(String vertex) {
+		this.vertex = vertex;
+	}
+
 	public static <T> ArrayList<Edge<T>> kruskal(IGraph<T> g){
 		List<Edge<T>> result = new ArrayList<Edge<T>>(); // This will store the resultant MST
 		int e = 0; // An index variable, used for result[]

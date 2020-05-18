@@ -294,7 +294,23 @@ public class ShorterPathWindowController {
 				}
 			}
 			String result = "Result: \n" + GraphAlgorithms.prim(origin, graph);
-			resultsLabel.setText("The Algorithm prime throws "+result + " like a minimum height");
+			
+			
+			
+			String a = solution.getVertex();
+			String[] ac = a.split("\n");
+			String[][] acg = new String[ac.length][];
+			for (int i = 0; i < ac.length; i++) {
+				acg[i] = ac[i].split(" ");
+			}
+			
+			resultsLabel.setText("The Algorithm prime with matrix adjacency throws" +result + " like a minimum height" + "\n");
+			
+			String acv = "The edges are: " + "\n" + solution.getVertex() + "\n" + "1.Genova " + "2.Pijao " + "3.BuenaVista " +"4.Cordoba " + "5.Calarca"
+					+ "6.Armenia " + "7.La Tebaida " + "8. Montenegro " + "9.Quimbaya " + "10.Filandia " + "11.Salento ";
+			System.out.println(acv);
+			
+			//System.out.println(solution.getVertex());
 			
 		}
 		
@@ -302,13 +318,71 @@ public class ShorterPathWindowController {
 	
 	@FXML
 	void listButton(Event e) {
+		solution = new GraphAlgorithms<Object>();
 		if(origin == destination || destination == null) {
 			Alert noData = new Alert(AlertType.ERROR);
 			noData.setContentText("No ha datos suficientes, por favor elige el origen y el destino");
 			noData.setTitle("Datos insuficientes");
 			noData.show();
 		}else {
+			graph = new AdjacencyList<String>();
+			int index = 0;
+			int desti = 0;
+			for (int i = 0; i < namesPlace.size(); i++) {
+				if(namesPlace.get(i).equals(origin)) {
+					index = i;
+					//Prueba
+					System.out.println("Origin: "+ namesPlace.get(i));
+				}
+				if(namesPlace.get(i).equals(destination)) {
+					desti = i;
+					//Prueba
+					System.out.println("Destination: "+ namesPlace.get(i));
+				}
+			}
+			for (int i = index; i < desti+1; i++) {
+				//Prueba
+				String a = namesPlace.get(i);
+				graph.addVertex(a);
+				System.out.println("Añadiendo al grafo: "+ namesPlace.get(i));
+			}
+			for (int i = index; i < desti+1; i++) {
+				for (int j = 0; j < costs.length; j++) {
+					if(namesPlace.get(i).equals(costs[j][0])) {
+						String b = costs[j][0];
+						String c = costs[j][1];
+						String d = costs[j][2];
+						try {
+							
+							int z = Integer.parseInt(d);
+							graph.addEdge(b, c, z);
+							//Prueba
+							System.out.println("Agregando arista: " + b + " " + c + " " + z);
+						}catch(Exception a) {
+							System.out.println("Error" + b + " " + c);
+						}
+					
+					}
+				}
+			}
+			String result = "Result: \n" + GraphAlgorithms.prim(origin, graph);
 			
+			
+			
+			String a = solution.getVertex();
+			String[] ac = a.split("\n");
+			String[][] acg = new String[ac.length][];
+			for (int i = 0; i < ac.length; i++) {
+				acg[i] = ac[i].split(" ");
+			}
+			
+			resultsLabel.setText("The Algorithm prime with list adjacency throws" +result + " like a minimum height" + "\n");
+			
+			String acv = "The edges are: " + "\n" + solution.getVertex() + "\n" + "1.Genova " + "2.Pijao " + "3.BuenaVista " +"4.Cordoba " + "5.Calarca"
+					+ "6.Armenia " + "7.La Tebaida " + "8. Montenegro " + "9.Quimbaya " + "10.Filandia " + "11.Salento ";
+			System.out.println(acv);
+			
+			//System.out.println(solution.getVertex());
 		}
 	}
 	
